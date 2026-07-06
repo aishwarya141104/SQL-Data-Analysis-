@@ -1,40 +1,85 @@
 # 📊 SQL Data Analysis Project
 
+<div align="center">
+
 ![SQL](https://img.shields.io/badge/SQL-MySQL-blue?logo=mysql)
-![Database](https://img.shields.io/badge/Database-MySQL-orange)
-![Status](https://img.shields.io/badge/Project-Completed-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-blue)
+![Database](https://img.shields.io/badge/Database-MySQL-orange?logo=mysql)
+![Project](https://img.shields.io/badge/Project-Completed-brightgreen)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Portfolio_Ready-success)
 
-## 📌 Project Overview
+**A complete SQL Data Analysis project demonstrating data exploration, business intelligence, and advanced SQL techniques using MySQL.**
 
-This project focuses on analyzing an e-commerce dataset using SQL to extract meaningful business insights. The analysis covers sales performance, customer behavior, product trends, payment methods, and referral sources using MySQL.
-
-The project demonstrates SQL fundamentals as well as advanced concepts including Views, Window Functions, Common Table Expressions (CTEs), and Indexing.
+</div>
 
 ---
 
-## 🎯 Objectives
+# 📖 Table of Contents
+
+- Project Overview
+- Objectives
+- Dataset Information
+- Tech Stack
+- Database Schema
+- SQL Concepts Covered
+- Project Structure
+- Business Questions Solved
+- Key Business Insights
+- Sample SQL Queries
+- How to Run
+- Future Improvements
+- Author
+- License
+
+---
+
+# 📌 Project Overview
+
+This project analyzes an e-commerce sales dataset using **MySQL** to extract valuable business insights through SQL queries.
+
+The project demonstrates practical SQL skills including data filtering, aggregation, grouping, ranking, indexing, views, Common Table Expressions (CTEs), and window functions.
+
+The objective is to transform raw transactional data into actionable insights that support business decision-making.
+
+---
+
+# 🎯 Objectives
 
 - Import an Excel dataset into MySQL
-- Perform data analysis using SQL
-- Generate business insights
-- Practice SQL aggregation and filtering
-- Demonstrate advanced SQL concepts
-- Build a portfolio-ready SQL project
+- Create a relational database
+- Perform SQL-based data analysis
+- Analyze customer purchasing behavior
+- Evaluate product performance
+- Measure sales and revenue
+- Identify high-value customers
+- Generate business recommendations
 
 ---
 
-## 🛠️ Tools & Technologies
+# 📂 Dataset Information
+
+| Attribute | Details |
+|-----------|----------|
+| Domain | E-Commerce |
+| Total Records | 1200 |
+| Database | EcommerceDB |
+| Table | orders |
+| Source | DecodeLabs Project Dataset |
+
+---
+
+# 🛠 Tech Stack
 
 - MySQL Server
 - MySQL Workbench
 - SQL
 - Microsoft Excel
-- Git & GitHub
+- Git
+- GitHub
 
 ---
 
-## 📂 Project Structure
+# 🗂 Project Structure
 
 ```
 SQL-Data-Analysis-Project
@@ -47,26 +92,21 @@ SQL-Data-Analysis-Project
 │   ├── create_table.sql
 │   └── queries.sql
 │
-├── Screenshots
-│   ├── 01_total_orders.png
-│   ├── 02_total_revenue.png
-│   ├── 03_top_selling_products.png
-│   ├── 04_payment_method_analysis.png
-│   └── 05_top_customers.png
-│
 ├── Business_Insights.pdf
 │
 ├── README.md
 │
-└── LICENSE
+├── LICENSE
+│
+└── .gitignore
 ```
 
 ---
 
-## 📋 Database Schema
+# 🗄 Database Schema
 
-| Column | Data Type |
-|---------|-----------|
+| Column Name | Data Type |
+|-------------|-----------|
 | OrderID | VARCHAR |
 | Date | DATE |
 | CustomerID | VARCHAR |
@@ -84,19 +124,25 @@ SQL-Data-Analysis-Project
 
 ---
 
-## 📊 SQL Concepts Used
+# 📚 SQL Concepts Covered
+
+### Basic SQL
 
 - SELECT
 - WHERE
 - ORDER BY
+- LIMIT
+
+### Intermediate SQL
+
 - GROUP BY
 - HAVING
-- COUNT()
-- SUM()
-- AVG()
-- MIN()
-- MAX()
-- LIMIT
+- Aggregate Functions
+- DISTINCT
+- LIKE
+
+### Advanced SQL
+
 - Views
 - Indexes
 - Common Table Expressions (CTEs)
@@ -107,96 +153,196 @@ SQL-Data-Analysis-Project
 
 ---
 
-## 📈 Key Analysis Performed
+# 📊 Business Questions Solved
 
-- Total Orders
-- Total Revenue
-- Average Order Value
-- Top Selling Products
-- Revenue by Product
-- Top Customers
+✔ How many orders were placed?
+
+✔ What is the total revenue generated?
+
+✔ Which products generate the highest revenue?
+
+✔ Which products are sold the most?
+
+✔ Who are the highest spending customers?
+
+✔ Which payment method is preferred by customers?
+
+✔ Which referral source generates maximum revenue?
+
+✔ Which coupon codes are used most frequently?
+
+✔ What is the average order value?
+
+✔ Which shipping locations receive the highest number of orders?
+
+---
+
+# 📈 Key Analysis Performed
+
+- Total Orders Analysis
+- Revenue Analysis
+- Product Performance Analysis
 - Customer Spending Analysis
 - Payment Method Analysis
+- Referral Source Analysis
 - Coupon Usage Analysis
-- Referral Source Performance
-- Shipping Location Analysis
+- Shipping Address Analysis
+- Order Status Analysis
 - Monthly Revenue Analysis
 
 ---
 
-## 💡 Business Insights
+# 💡 Business Insights
 
-- Analyzed 1200 customer orders.
-- Identified top-selling products based on quantity sold.
-- Calculated total revenue and average order value.
-- Identified high-value customers.
-- Compared different payment methods.
-- Evaluated referral sources contributing the highest revenue.
-- Analyzed coupon usage trends.
-- Generated actionable insights for improving business performance.
+- Successfully analyzed **1200 customer orders**.
+- Identified the highest revenue-generating products.
+- Ranked customers based on total purchase value.
+- Measured customer spending behavior.
+- Compared payment methods used by customers.
+- Evaluated marketing referral sources.
+- Identified frequently used coupon codes.
+- Generated business recommendations based on SQL analysis.
 
 ---
 
+# 📝 Sample SQL Queries
 
+## Total Revenue
 
-## 🚀 How to Run
-
-### Clone Repository
-
-```bash
-git clone https://github.com/yourusername/SQL-Data-Analysis-Project.git
+```sql
+SELECT SUM(TotalPrice) AS Total_Revenue
+FROM orders;
 ```
 
-### Open MySQL Workbench
-
-Run the following files in order:
-
-1. create_database.sql
-2. create_table.sql
-3. Import orders.csv
-4. Execute queries.sql
-
 ---
 
-## 📊 Sample SQL Query
+## Top Selling Products
 
 ```sql
 SELECT Product,
-       SUM(Quantity) AS Total_Sold
+SUM(Quantity) AS Total_Sold
 FROM orders
 GROUP BY Product
-ORDER BY Total_Sold DESC
+ORDER BY Total_Sold DESC;
+```
+
+---
+
+## Top Customers
+
+```sql
+SELECT CustomerID,
+SUM(TotalPrice) AS Revenue
+FROM orders
+GROUP BY CustomerID
+ORDER BY Revenue DESC
 LIMIT 10;
 ```
 
 ---
 
-## 📈 Future Improvements
+# 🚀 How to Run
 
-- Build an interactive Power BI dashboard
-- Create stored procedures
-- Implement triggers
-- Optimize queries with indexes
-- Add more advanced SQL analytics
+## 1 Clone Repository
+
+```bash
+git clone https://github.com/aishwarya141104/SQL-Data-Analysis-Project.git
+```
 
 ---
 
-## 👩‍💻 Author
+## 2 Open MySQL Workbench
+
+Create a new database.
+
+---
+
+## 3 Execute SQL Scripts
+
+Run in the following order:
+
+```
+create_database.sql
+
+↓
+
+create_table.sql
+
+↓
+
+Import orders.csv
+
+↓
+
+queries.sql
+```
+
+---
+
+# 📈 Project Outcomes
+
+- Imported and managed relational data using MySQL.
+- Developed more than **40 SQL queries** for data analysis.
+- Applied SQL techniques ranging from basic filtering to advanced analytical functions.
+- Generated actionable business insights from transactional data.
+- Built a portfolio-ready SQL project following industry best practices.
+
+---
+
+# 🔮 Future Improvements
+
+- Develop an interactive Power BI dashboard.
+- Create stored procedures for automation.
+- Implement SQL triggers.
+- Add query optimization techniques.
+- Integrate Python for advanced analytics.
+- Expand the database with additional tables and relationships.
+
+---
+
+# 👩‍💻 Author
 
 **Aishwarya Kulkarni**
 
-GitHub: https://github.com/aishwarya141104
+📧 Email: *(Add your email)*
 
-LinkedIn: *(Add your LinkedIn profile here)*
+🔗 GitHub: https://github.com/aishwarya141104
 
----
-
-## ⭐ If you like this project
-
-Give this repository a ⭐ on GitHub.
+🔗 LinkedIn: *(Add your LinkedIn profile)*
 
 ---
 
-## 📄 License
+# 🤝 Contributing
 
-This project is licensed under the MIT License.
+Contributions are welcome.
+
+If you would like to improve this project:
+
+1. Fork the repository
+2. Create a new branch
+3. Commit your changes
+4. Open a Pull Request
+
+---
+
+# ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+See the **LICENSE** file for more information.
+
+---
+
+<div align="center">
+
+### ⭐ Thank you for visiting this repository!
+
+**Happy Learning & Happy Coding! 🚀**
+
+</div>
