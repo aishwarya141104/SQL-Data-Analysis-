@@ -1,3 +1,5 @@
+<img width="1774" height="887" alt="image" src="https://github.com/user-attachments/assets/f6cd0f67-af8c-4bc9-a4b5-1fff75e0b5f3" />
+
 # 📊 SQL Data Analysis Project – E-Commerce Business Intelligence
 
 <p align="center">
